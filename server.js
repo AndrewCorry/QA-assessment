@@ -14,7 +14,8 @@ var rollbar = new Rollbar({
 })
 
 // record a generic message and send it to Rollbar
-rollbar.log('Someone is Duo Dueling')
+rollbar.log('Someone is Duo Dueling!')
+rollbar.warning("I couldn't get the server to work, so most of the rollbar logs won't show up")
 
 app.use(express.json())
 
