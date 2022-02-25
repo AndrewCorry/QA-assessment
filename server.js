@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+var cors = require('cors')
 const app = express();
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
@@ -18,6 +19,7 @@ rollbar.log('Someone is Duo Dueling!')
 rollbar.warning("I couldn't get the server to work, so most of the rollbar logs won't show up")
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/', function(req,res){
     res.sendFile(path.join(__dirname, './public/index.html'))
