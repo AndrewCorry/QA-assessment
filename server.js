@@ -20,11 +20,14 @@ rollbar.warning("I couldn't get the server to work, so most of the rollbar logs 
 
 app.use(express.json())
 app.use(cors())
+app.use(express.static(path.join(__dirname, '/public')))
+
 
 app.get('/', function(req,res){
     res.sendFile(path.join(__dirname, './public/index.html'))
     app.use(express.static(path.join(__dirname, './')))
 });
+
 
 app.get('/api/robots', (req, res) => {
     try {
